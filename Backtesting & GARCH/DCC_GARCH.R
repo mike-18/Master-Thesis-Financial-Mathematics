@@ -26,6 +26,9 @@ cat(paste("VaR Alpha:", alpha_var, "| ES Alpha:", alpha_es, "\n"))
 # 1. LOAD DATA AND CREATE SYNTHETIC TIMELINE
 raw_data <- read.csv(file_path, sep = ",", header = TRUE, stringsAsFactors = FALSE)
 returns_mat <- as.matrix(raw_data)
+# NOTE: Unlike the thesis (loss convention, VaR/ES positive), the code uses
+# the return convention (VaR negative, ES positive). The backtesting
+# routine is consistently aligned with this convention.
 
 # Create a synthetic daily sequence
 # xts requires a timeline; using a fictional start date.. it doesnt matter where to start

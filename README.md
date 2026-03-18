@@ -53,13 +53,9 @@ Contains **YAML configuration files** that define the full experiment setup for 
 
 | File | Description |
 |---|---|
-| `bluechip_sp500.yaml` | Configuration for the Blue-Chip (S&P 500) portfolio. Defines model architecture (seq_length, feature_size, d_model, n_heads, etc.), training parameters (learning rate, epochs, scheduler), and dataloader settings (data path, batch size, window size). |
+| `bluechip_sp500.yaml` | Configuration for the Blue-Chip (S&P 500) portfolio. |
 | `crossAsset.yaml` | Configuration for the Cross-Asset portfolio. |
 
-**Key configuration sections:**
-- `model` — Diffusion-TS architecture parameters (layers, attention heads, timesteps, beta schedule)
-- `solver` — Training parameters (learning rate, EMA decay, scheduler with warmup)
-- `dataloader` — Dataset path, sequence window, batch size, and normalization settings
 
 ---
 
@@ -89,7 +85,7 @@ The core **Diffusion-TS** model implementation.
 
 | File | Description |
 |---|---|
-| `gaussian_diffusion.py` | Main `Diffusion_TS` class — implements the full denoising diffusion probabilistic model. Includes the forward diffusion process (noise scheduling with linear/cosine beta schedules), the reverse denoising process (DDPM/DDIM sampling), and loss computation (L1/L2). |
+| `gaussian_diffusion.py` | Main `Diffusion_TS` class; implements the full denoising diffusion probabilistic model. Includes the forward diffusion process (noise scheduling with linear/cosine beta schedules), the reverse denoising process (DDPM/DDIM sampling), and loss computation (L1/L2). |
 | `transformer.py` | The **Transformer backbone** used as the denoising network. Features an interpretable architecture with specialized components: `TrendBlock` (polynomial trend modeling), `FourierLayer` (seasonality via inverse DFT), and `MovingBlock` (moving average decomposition), alongside standard multi-head self-attention with adaptive layer normalization. |
 | `model_utils.py` | Utility functions for the model: positional encoding, normalization helpers (`normalize_to_neg_one_to_one`, `unnormalize_to_zero_to_one`), convolutional MLP blocks, adaptive layer norm, series decomposition, and tensor extraction helpers. |
 
@@ -98,7 +94,7 @@ The core **Diffusion-TS** model implementation.
 |---|---|
 | `ts2vec.py` | Main TS2Vec class — trains a temporal contrastive encoder and provides `encode()` for extracting fixed-length representations of time series. |
 | `utils.py` | Helper functions for TS2Vec (padding, splitting, centering). |
-| `models/encoder.py` | The temporal encoder architecture (dilated causal convolutions). |
+| `models/encoder.py` | The temporal encoder architecture. |
 | `models/dilated_conv.py` | Dilated convolution layers used in the encoder. |
 | `models/losses.py` | Hierarchical contrastive loss for TS2Vec training. |
 

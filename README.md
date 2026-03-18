@@ -40,7 +40,7 @@ The project follows a three-phase pipeline:
 
 | Notebook | Description |
 |---|---|
-| `Diffusion-TS.ipynb` | **Phase 1** — Training of the base Diffusion-TS models. Contains the grid search over hyperparameters (batch size, number of attention heads, model dimension) for both portfolios and evaluates generation quality using discriminative scores, predictive scores, cross-correlation loss, and PCA/t-SNE visualizations. |
+| `Diffusion-TS.ipynb` | **Phase 1** — Training of the base Diffusion-TS models. Contains the grid search over hyperparameters for both portfolios and evaluates generation quality using discriminative scores, predictive scores, cross-correlation loss, and PCA/t-SNE visualizations. |
 | `Diffusion_TS_Forcasting.ipynb` | **Phase 2** — Forecasting experiments. Loads a trained checkpoint, generates synthetic return sequences for future time windows, and saves them as CSV files for downstream risk computation. |
 | `VaR_ES_Calculation.ipynb` | **Phase 3a** — Computes VaR and ES using three traditional (baseline) methods: **Historical Simulation**, **Variance-Covariance**, and **Monte Carlo Simulation**. Uses a rolling window approach. |
 | `VaR_ES_Calculation_Diffusion.ipynb` | **Phase 3b** — Computes VaR and ES from the **Diffusion-TS** generated synthetic sequences. Loads the forecasted sequences, reshapes them, and derives portfolio-level risk measures. |

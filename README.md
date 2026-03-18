@@ -120,11 +120,9 @@ Utility modules for data processing, evaluation metrics, and visualization.
 |---|---|
 | `io_utils.py` | I/O utilities — YAML/JSON config loading and saving, argument logging, random seed setting, config merging from command-line options, and dynamic class instantiation from config via `instantiate_from_config()`. |
 | `metric_utils.py` | Evaluation and visualization utilities — PCA and t-SNE visualizations comparing real vs. synthetic data, train/test splitting, sequence length extraction, and confidence interval computation for metric scores. |
-| `context_fid.py` | **Context-FID** computation — trains a TS2Vec encoder on real data, encodes both real and synthetic sequences, and computes the Fréchet Inception Distance (FID) in the learned representation space. |
 | `cross_correlation.py` | **Cross-Correlation Loss** — computes the auto/cross-correlation function (CACF) of multivariate time series and measures the difference between real and synthetic correlation structures. |
 | `discriminative_metric.py` | **Discriminative Score** — trains a post-hoc GRU-based classifier to distinguish real from synthetic sequences. The discriminative score is `|accuracy - 0.5|`; closer to 0 means better generation quality. Based on the TimeGAN evaluation framework. |
 | `predictive_metric.py` | **Predictive Score** — trains a GRU on synthetic data to predict one-step-ahead values, then evaluates on real data using MAE. Lower scores indicate the synthetic data captures temporal dynamics well. Based on the TimeGAN evaluation framework. |
-| `imputation_utils.py` | Imputation visualization and masked loss utilities — plots imputed values with uncertainty bands (quantiles) and provides a `MaskedLoss` class for computing MSE/L1 loss only on masked (predicted) positions. |
 | `masking_utils.py` | Masking utilities — generates noise masks for data augmentation/imputation tasks with geometric or Bernoulli distributions. Also includes batch collation with padding and mask compensation for variable-length sequences. |
 
 #### `Utils/Data_utils/`
